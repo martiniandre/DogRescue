@@ -1,0 +1,10 @@
+{
+  "short_name": "Dog Rescue",
+  "name": "Website for dog adoption",
+  "icons": [
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
