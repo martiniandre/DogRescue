@@ -10,7 +10,7 @@ const Favorites = () => (
     <Navbar />
     <Container>
       <Title margin="30px 0">Favorites</Title>
-      <Dog justify="start" grid="four"/>
+      <Dog justify='true'/>
     </Container>
   </>
 );

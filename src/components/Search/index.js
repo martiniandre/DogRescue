@@ -9,7 +9,7 @@ import { Container } from './style';
 const SearchDogs = ({register}) => {
   return(
     <Container>
-      <Form width="100%" method="GET">
+      <Form width="100%" method="get">
       <Field.Text label="Name" type="text" name="name" register={register} />
       <Field.Text label="Breed" type="text" name="breed" register={register} />
       <Field.Text label="Location" type="text" name="location" register={register} />

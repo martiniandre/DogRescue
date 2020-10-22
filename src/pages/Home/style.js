@@ -127,6 +127,7 @@ export const News = styled.section`
   align-items: center;
   justify-content: center;
   background: var(--primary);
+  position:relative;
   h1 {
     font-size: 2.2rem;
     margin-bottom: 20px;

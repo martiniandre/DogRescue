@@ -23,15 +23,15 @@ function Navbar() {
         <NavTitle>PetRescue</NavTitle>
         <FlexNav>
           <NavLinks to="/dogs">Find a dog</NavLinks>
-          <NavLinks to="/">Adoption Info</NavLinks>
-          <NavLinks to="/">Dog Care</NavLinks>
+          <NavLinks to="/how-to-adopt">Requirement</NavLinks>
+          <NavLinks to="/guide">Guide</NavLinks>
         </FlexNav>
         <FlexNav>
           <NavLinks to="/favorites" style={{ paddingRight: '10px' }}>
             <MdFavorite size={42} />
           </NavLinks>
           <NavLinks
-            to="/login"
+            to="/register"
             style={{ borderLeft: '1px solid blue', paddingLeft: '10px' }}
           >
             <BiUserCircle size={42} />
@@ -46,21 +46,21 @@ function Navbar() {
       <OpenMenu open={open}>
         <NavLinks to="/">
           <FiHome size={54} style={{ paddingRight: 15 }} />
-          Dog Care
+          Hints
         </NavLinks>
         <NavLinks to="/">
           <FiSearch size={54} style={{ paddingRight: 15 }} />
           Find a dog
         </NavLinks>
-        <NavLinks to="/">
+        <NavLinks to="/how-to-adopt">
           <FiInfo size={54} style={{ paddingRight: 15 }} />
-          Adoption Info
+          Requirement
         </NavLinks>
-        <NavLinks to="/">
+        <NavLinks to="/favorites">
           <MdFavorite size={54} style={{ paddingRight: 15 }} />
           Favorite
         </NavLinks>
-        <NavLinks to="/login">
+        <NavLinks to="/register">
           <BiUserCircle size={42} style={{ marginRight: 15 }} />
           User
         </NavLinks>

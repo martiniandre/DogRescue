@@ -10,6 +10,8 @@ const Register = lazy(() => import('../pages/Register'));
 const Groups = lazy(() => import('../pages/Groups'));
 const Favorites = lazy(() => import('../pages/Favorites'));
 const Dogs = lazy(() => import('../pages/Dogs'));
+const AdoptionHints = lazy(() => import('../pages/AdoptionHints'));
+const Adoption = lazy(() => import('../pages/Adoption'));
 
 const Routes = () => (
   <Router>
@@ -21,6 +23,8 @@ const Routes = () => (
         <Route path="/register/" exact component={Register} />
         <Route path="/dogs/" exact component={Dogs} />
         <Route path="/favorites/" exact component={Favorites} />
+        <Route path="/guide/" exact component={AdoptionHints} />
+        <Route path="/how-to-adopt/" exact component={Adoption} />
       </Suspense>
     </Switch>
   </Router>

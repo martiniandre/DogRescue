@@ -4,22 +4,17 @@ import DogImage from '../../assets/dog.png';
 import dog from './dogs';
 import * as S from './style';
 
-const Dog = ({ grid,justify }) => (
-    <S.Cards grid={grid}>
+const Dog = ({ justify }) => (
+    <S.Cards justify={justify}>
       {dog.map((d, index) => (
-        <S.Card key={index} justify={justify}>
+        <S.Card key={index}>
           <img src={DogImage} alt="" />
           <S.dogDetails>
             <S.CardName title={d.name}>{d.name}</S.CardName>
             <div>
-              <p>
-                Age:
-                {d.idade}
-              </p>
-              <p>
-                Breed:
-                {d.raça}
-              </p>
+            <p>{d.raça} </p>
+              <p>Age:{d.idade}</p>
+
             </div>
           </S.dogDetails>
         </S.Card>

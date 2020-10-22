@@ -2,46 +2,22 @@ import styled from 'styled-components';
 
 export const Cards = styled.section`
   width: 100%;
-  max-width: 1200px;
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: ${props =>{
-    switch(props.grid){
-      case "four":
-        return "1fr 1fr 1fr 1fr";
-      default:
-        return "1fr 1fr 1fr"
-  }}};
-  grid-gap: 15px;
-  justify-content: start;
-  align-items: center;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:${props => props.justify ? "start" : "center"};
   background: var(--white) 0.9;
   padding-bottom: 50px;
-  @media (max-width: 766px) {
-    grid-template-columns: 1fr 1fr;
-    justify-self:center;
-  }
+  margin: -10px 0 0 -10px;
 `;
-export const Card = styled.div.attrs({
-  tabIndex: 0,
-})`
+export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 180px;
-  justify-self: ${props => {
-      switch(props.justify){
-        case "center":
-          return "center";
-        default:
-          return "start"
-      }
-
-  }};
+  width: 20%;
+  padding: 5px;
   background: var(--white);
   margin-bottom: 20px;
   border-radius: 15px;
-  padding: 10px;
+  margin: 10px 15px;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
   border: 0px solid #000000;
@@ -54,14 +30,17 @@ export const Card = styled.div.attrs({
     margin:0 auto;
     border-radius: 15px 15px 0 0;
   }
+  @media(max-width:768px){
+    width: 40%;
+  }
 `;
 export const CardName = styled.span`
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: var(--black);
   font-weight: bold;
   text-align: initial;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   border-radius: 0px 0px 15px 15px;
   -moz-border-radius: 0px 0px 15px 15px;
   -webkit-border-radius: 0px 0px 15px 15px;
@@ -69,13 +48,15 @@ export const CardName = styled.span`
   text-align:center;
 `;
 export const dogDetails = styled.div`
-  padding: 10px;
   > div {
     font-size: 1rem;
     display: flex;
     color: var(--extras);
     flex-direction: column;
     text-align:center;
+  }
+  p{
+    margin-bottom: 4px;
   }
   @media (max-width: 590px) {
     div {

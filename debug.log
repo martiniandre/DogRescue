@@ -1,0 +1,9 @@
+[1008/175315.699:ERROR:process_reader_win.cc(127)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[1008/175315.699:ERROR:exception_snapshot_win.cc(100)] thread ID 7788 not found in process
+[1008/175315.964:ERROR:minidumpwritedump_with_crashpad_info.cc(452)] Failed to call MiniDumpWriteDump: Acesso negado. (0x80070005)
+[1008/175315.964:ERROR:minidumpwritedump_with_crashpad_info.cc(661)] Failed to write minidump file
+[1008/175315.964:ERROR:crash_report_exception_handler.cc(132)] TryMiniDumpWriteDumpWithCrashpadInfo failed
+[1008/175315.964:ERROR:process_memory_win.cc(73)] ReadMemory at 0x254a3e2e340 of 72 bytes failed: Somente uma parte de um pedido ReadProcessMemory ou WriteProcessMemory foi concluída. (0x12B)
+[1008/175315.964:WARNING:pe_image_annotations_reader.cc(135)] could not read annotations list object in C:\Program Files (x86)\Microsoft\Edge\Application\85.0.564.70\msedge_elf.dll
+[1008/175315.964:ERROR:process_memory_win.cc(73)] ReadMemory at 0x254a3e86210 of 72 bytes failed: Somente uma parte de um pedido ReadProcessMemory ou WriteProcessMemory foi concluída. (0x12B)
+[1008/175315.964:WARNING:pe_image_annotations_reader.cc(135)] could not read annotations list object in C:\Program Files (x86)\Microsoft\Edge\Application\85.0.564.70\msedge.dll

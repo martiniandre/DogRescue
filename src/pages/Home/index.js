@@ -10,12 +10,14 @@ import Navbar from '../../components/Navbar';
 import Form from '../../components/Form';
 import Dog from '../../components/Dog';
 import Field from '../../components/Form/Field';
+
 import Footer from '../../components/Footer';
 import { Title, SubTitle, Paragraphy, Error, Read } from '../../Typography';
 
 import * as S from './style';
 
 const Home = () => {
+
   const schema = yup.object().shape({
     news: yup.string().email('Digite um email válido'),
   });
@@ -79,7 +81,7 @@ const Home = () => {
           </S.Grid>
         </S.InfoSection>
         <Title margin="10px auto">Cachoros disponíveis para adoção</Title>
-        <Dog justify="center" grid="four"/>
+        <Dog/>
       </S.Main>
 
       <S.News>
@@ -90,6 +92,7 @@ const Home = () => {
           <Field.News label="" type="text" name="news" register={register} />
           <Error>{errors.news?.message}</Error>
         </Form>
+
       </S.News>
       <Footer />
     </>

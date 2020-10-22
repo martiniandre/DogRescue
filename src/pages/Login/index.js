@@ -51,7 +51,7 @@ const Login = () => {
           to="/register"
           style={{ textAlign: 'right', padding: '0', marginBottom: '10px' }}
         >
-          Already have an account?
+          Doesn't have an account?
         </Redirect>
         <Button.BtnBig name="Login" />
       </Form>

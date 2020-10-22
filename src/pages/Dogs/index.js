@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Container from '../../components/Container';
 import Navbar from '../../components/Navbar';
 import Dog from '../../components/Dog';
-import { SubTitle } from '../../Typography';
+import {Title, SubTitle } from '../../Typography';
 import Search from '../../components/Search';
 
 const FormContainer = styled.div`
@@ -32,6 +32,7 @@ const Dogs = () => (
   <>
     <Navbar />
     <Container>
+      <Title margin="20px 0">Find Dog</Title>
       <Flex>
           <FormContainer>
           <SubTitle margin="30px 0">Search</SubTitle>
