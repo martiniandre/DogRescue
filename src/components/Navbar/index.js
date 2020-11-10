@@ -21,6 +21,7 @@ function Navbar() {
     <Container>
       <NavContainer>
         <NavTitle>PetRescue</NavTitle>
+
         <FlexNav>
           <NavLinks to="/dogs">Find a dog</NavLinks>
           <NavLinks to="/how-to-adopt">Requirement</NavLinks>

@@ -1,9 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import PrivateRoute from '../components/PrivateRoute';
+import Context from '../context/createContext';
 
-/* import Home from '../pages/Home'
-import Login from '../pages/Login'
-import Register from '../pages/Register' */
 const Home = lazy(() => import('../pages/Home'));
 const Login = lazy(() => import('../pages/Login'));
 const Register = lazy(() => import('../pages/Register'));
@@ -14,20 +13,22 @@ const AdoptionHints = lazy(() => import('../pages/AdoptionHints'));
 const Adoption = lazy(() => import('../pages/Adoption'));
 
 const Routes = () => (
-  <Router>
-    <Switch>
-      <Suspense fallback={<h3>Loading...</h3>}>
-        <Route path="/" exact component={Home} />
-        <Route path="/login/" exact component={Login} />
-        <Route path="/groups" exact component={Groups} />
-        <Route path="/register/" exact component={Register} />
-        <Route path="/dogs/" exact component={Dogs} />
-        <Route path="/favorites/" exact component={Favorites} />
-        <Route path="/guide/" exact component={AdoptionHints} />
-        <Route path="/how-to-adopt/" exact component={Adoption} />
-      </Suspense>
-    </Switch>
-  </Router>
+  <Context.Provider value="true">
+     <Router>
+        <Switch>
+          <Suspense fallback={<h3>Loading...</h3>}>
+            <Route path="/" exact component={Home} />
+            <Route path="/login/" exact component={Login} />
+            <Route path="/groups" exact component={Groups} />
+            <Route path="/register/" exact component={Register} />
+            <Route path="/dogs/" exact component={Dogs} />
+            <Route path="/guide/" exact component={AdoptionHints} />
+            <Route path="/how-to-adopt/" exact component={Adoption} />
+          </Suspense>
+        </Switch>
+    </Router>
+  </Context.Provider>
+
 );
 
 export default Routes;

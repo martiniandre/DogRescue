@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from '../../components/Container';
 import Navbar from '../../components/Navbar';
-import {Paragraphy } from '../../Typography';
 const Information = styled.main`
   width:100%;
   max-width: 70%;

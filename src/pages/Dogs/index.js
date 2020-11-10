@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar';
 import Dog from '../../components/Dog';
 import {Title, SubTitle } from '../../Typography';
 import Search from '../../components/Search';
+import api from '../../services/api';
 
 const FormContainer = styled.div`
   width: 100%;
@@ -28,13 +29,20 @@ const Flex = styled.div`
   }
 `;
 
-const Dogs = () => (
+const Dogs = () => {
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    api.get(`dogs/?name=Du`).then(resp => console.log(resp))
+  }
+
+  return(
   <>
     <Navbar />
     <Container>
       <Title margin="20px 0">Find Dog</Title>
       <Flex>
-          <FormContainer>
+          <FormContainer onSubmit={handleSearch}>
           <SubTitle margin="30px 0">Search</SubTitle>
           <Search.SearchDogs/>
           </FormContainer>
@@ -42,5 +50,5 @@ const Dogs = () => (
           </Flex>
       </Container>
 </>
-);
+);}
 export default Dogs;

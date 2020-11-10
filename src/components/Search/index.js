@@ -6,7 +6,7 @@ import Field from '../Form/Field';
 
 import { Container } from './style';
 
-const SearchDogs = ({register}) => {
+const SearchDogs = ({register,onClick}) => {
   return(
     <Container>
       <Form width="100%" method="get">
@@ -19,7 +19,7 @@ const SearchDogs = ({register}) => {
   )
 }
 
-const SearchGroups = ({register}) => {
+const SearchGroups = ({register,onClick}) => {
   return(
   <Container>
         <Form width="100%" method="GET">

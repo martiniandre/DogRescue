@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup';
@@ -10,10 +10,10 @@ import Form from '../../components/Form';
 import Button from '../../components/Form/Button';
 import Field from '../../components/Form/Field';
 import { Title, Redirect, Error } from '../../Typography';
-import Modal from '../../components/Modal';
+
 
 const Register = () => {
-  const [openModal, setOpenModal] = useState(false)
+  const history = useHistory();
   const schema = yup.object().shape({
     name: yup
       .string(3, 'Nome deve possuir mais de 3 caracteres')
@@ -43,9 +43,12 @@ const Register = () => {
       email,
       password,
       location,
-    });
-    setOpenModal(true)
-  };
+    }).then(resp =>{
+      localStorage.setItem('token','Bearer '+resp.data.token)
+      history.push('/')
+    }).catch(err => console.log(err));
+  }
+
 
   return (
     <FormContainer>
@@ -81,7 +84,7 @@ const Register = () => {
           Already have an account?
         </Redirect>
         <Button.BtnBig name="Registrar" />
-        {openModal ? <Modal/> : null}
+
       </Form>
     </FormContainer>
   );
