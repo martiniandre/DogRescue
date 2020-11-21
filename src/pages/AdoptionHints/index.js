@@ -9,22 +9,22 @@ const Information = styled.main`
 `
 const ListMenu = styled.ol`
   font-size:1.8rem;
-  color: var(--primary);
+  color: var(--black);
   margin: 30px;
 `
 const Title = styled.h1`
   font-size:2.4rem;
   margin: 20px 0;
-  color:var(--primary);
+  color:var(--black);
 `
 const SubTitle = styled.h2`
   font-size:1.6rem;
-  color:var(--primary);
+  color:var(--black);
 `
 const Text = styled.p`
   font-size:1.1rem;
   margin-bottom:10px;
-  color:var(--primary);
+  color:var(--secondary);
   line-height:30px;
 `
 

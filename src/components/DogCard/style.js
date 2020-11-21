@@ -25,8 +25,8 @@ export const Card = styled.div`
   -moz-box-shadow: -1px 6px 13px 0px rgba(0, 0, 0, 0.44);
   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.4);
   > img {
-    width: 90%;
-    max-height: 150px;
+    width:90%;
+    height:150px;
     margin:0 auto;
     border-radius: 15px 15px 0 0;
   }

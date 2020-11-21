@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup';
-import api from '../../services/api';
+import UserServices from '../../services/UserServices';
 
 import FormContainer from '../../components/Container/FormContainer';
 import Form from '../../components/Form';
@@ -35,18 +35,10 @@ const Register = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = async ({
-    name, location, email, password,
-  }) => {
-    await api.post('/user', {
-      name,
-      email,
-      password,
-      location,
-    }).then(resp =>{
-      localStorage.setItem('token','Bearer '+resp.data.token)
-      history.push('/')
-    }).catch(err => console.log(err));
+  const onSubmit = async (values) => {
+    const userData = await UserServices.CreateUser(values);
+    console.log(userData);
+    history.push('/login')
   }
 
 

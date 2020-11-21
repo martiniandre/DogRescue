@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width:60%;
+  width:60vw;
   height:60vh;
-  background: #999;
+  background: #bdbdbd;
   z-index: 18;
-  display: flex;
+
   position: absolute;
+  visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
+  opacity: ${({ open }) => (open ? '1' : '0')};;
 `;
 
 export const ModalContainer = styled.div`
-  width: 60%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center
 `

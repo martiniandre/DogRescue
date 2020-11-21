@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import Container from '../../components/Container';
 import Navbar from '../../components/Navbar';
-import Dog from '../../components/Dog';
+/* import Dog from '../../components/Dog'; */
 import { SubTitle } from '../../Typography';
 import Search from '../../components/Search';
 
@@ -37,7 +37,7 @@ const Groups = () => (
           <SubTitle margin="30px 0">Search</SubTitle>
           <Search.SearchGroups/>
           </FormContainer>
-          <Dog/>
+ {/*          <Dog/> */}
           </Flex>
       </Container>
 </>

@@ -44,8 +44,8 @@ export const Paragraphy = styled.p`
   }
 `;
 export const Button = styled.button`
-  background: var(--primary);
-  color: var(--white);
+  background: var(--secondary);
+  color:var(--white);
   width: 100%;
   max-width: 250px;
   padding: 10px;

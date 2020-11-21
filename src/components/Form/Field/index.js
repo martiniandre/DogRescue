@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button';
-import dogs from '../../Dog/dogs';
+import dogs from '../../DogCard/dogs';
 
 const Label = styled.label`
   font-size: 1rem;

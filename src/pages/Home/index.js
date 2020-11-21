@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup';
+
 import { FiHome, FiAward } from 'react-icons/fi';
 import { FaBath } from 'react-icons/fa';
 
 import Container from '../../components/Container';
 import Navbar from '../../components/Navbar';
 import Form from '../../components/Form';
-import Dog from '../../components/Dog';
 import Field from '../../components/Form/Field';
+import DogCard from '../../components/DogCard'
 
 import Footer from '../../components/Footer';
-import { Title, SubTitle, Paragraphy, Error, Read } from '../../Typography';
-
+import { Title, SubTitle, Paragraphy, Error } from '../../Typography';
 import * as S from './style';
+import DogServices from '../../services/DogServices';
+
 
 const Home = () => {
+  const [ dogs, setDogs] = useState([]);
+
+  useEffect(() =>{
+    DogServices.ListDogs(8,setDogs);
+  },[])
 
   const schema = yup.object().shape({
     news: yup.string().email('Digite um email válido'),
@@ -28,6 +36,7 @@ const Home = () => {
     console.log(data);
   };
   return (
+
     <>
       <Navbar />
       <S.Header>
@@ -56,7 +65,6 @@ const Home = () => {
                 Aperiam reiciendis impedit recusandae sed nam repellat dolor,
                 magni perspiciatis iusto soluta unde ipsum modi praesentiu
               </Paragraphy>
-              <Read to="/">Veja mais</Read>
             </S.FlexItem>
             <S.FlexItem>
               <FiHome size={30} />
@@ -66,7 +74,6 @@ const Home = () => {
                 Aperiam reiciendis impedit recusandae sed nam repellat dolor,
                 magni perspiciatis iusto soluta unde ipsum modi praesentiu
               </Paragraphy>
-              <Read to="/">Veja mais</Read>
             </S.FlexItem>
             <S.FlexItem>
               <FaBath size={30} />
@@ -76,12 +83,11 @@ const Home = () => {
                 Aperiam reiciendis impedit recusandae sed nam repellat dolor,
                 magni perspiciatis iusto soluta unde ipsum modi praesentiu
               </Paragraphy>
-              <Read to="/">Veja mais</Read>
             </S.FlexItem>
           </S.Grid>
         </S.InfoSection>
         <Title margin="10px auto">Cachoros disponíveis para adoção</Title>
-        <Dog/>
+        <DogCard arr={dogs} />
       </S.Main>
 
       <S.News>

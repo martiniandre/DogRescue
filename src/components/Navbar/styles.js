@@ -38,8 +38,9 @@ export const NavLinks = styled(Link)`
   padding: 0 20px;
   transition: color 0.5s;
   color: var(--white);
+  vertical-align:middle;
   &:hover {
-    opacity: 0.8;
+    color:var(--ternary);
   }
 
   @media (max-width: 769px) {

@@ -28,7 +28,7 @@ export default createGlobalStyle`
         text-decoration:none;
     }
     :root{
-        --primary: #3700b3;
+        --primary: #7e84f3/* #3700b3 */;
         --secondary: #23036a;
         --ternary: #5600e8;
         --white: #fbfbfb;

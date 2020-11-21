@@ -1,15 +1,15 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import styled from 'styled-components'
 import Container from '../../components/Container';
 import Navbar from '../../components/Navbar';
-import Dog from '../../components/Dog';
+import DogCard from '../../components/DogCard';
 import {Title, SubTitle } from '../../Typography';
 import Search from '../../components/Search';
-import api from '../../services/api';
+import DogServices from '../../services/DogServices';
 
 const FormContainer = styled.div`
   width: 100%;
-  height:350px;
+  height:270px;
   padding:15px;
   max-width:300px;
   background:#e3e8ec;
@@ -17,6 +17,7 @@ const FormContainer = styled.div`
   border-radius:5px;
 
   @media(max-width:768px){
+      margin-bottom:40px;
       max-width:100%;
   }
 `;
@@ -30,25 +31,30 @@ const Flex = styled.div`
 `;
 
 const Dogs = () => {
+  const [dog,setDog ] = useState([]);
 
-  const handleSearch = (e) => {
+  useEffect(()=>{
+    DogServices.ListDogs(15,setDog);
+  },[])
+
+  async function HandleSearch(e){
     e.preventDefault();
-    api.get(`dogs/?name=Du`).then(resp => console.log(resp))
-  }
+    await DogServices.ListDogs(8,setDog)
 
+  }
   return(
   <>
     <Navbar />
     <Container>
       <Title margin="20px 0">Find Dog</Title>
       <Flex>
-          <FormContainer onSubmit={handleSearch}>
+          <FormContainer onSubmit={HandleSearch}>
           <SubTitle margin="30px 0">Search</SubTitle>
           <Search.SearchDogs/>
           </FormContainer>
-          <Dog/>
+          <DogCard arr={dog}/>
           </Flex>
       </Container>
 </>
-);}
+)}
 export default Dogs;

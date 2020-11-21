@@ -1,9 +1,10 @@
-import React from 'react';
-import { useHistory } from "react-router-dom";
+import React,{ useState } from 'react';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup';
+
+import AuthServices from '../../services/AuthServices';
 
 import FormContainer from '../../components/Container/FormContainer';
 import Form from '../../components/Form';
@@ -11,8 +12,8 @@ import Button from '../../components/Form/Button';
 import Field from '../../components/Form/Field';
 import { Title, Redirect, Error } from '../../Typography';
 import ErrorMessage from '../../components/ErrorMessage'
-import api from '../../services/api';
-import { useState } from 'react';
+import Modal from '../../components/Modal';
+
 
 const schema = yup.object().shape({
   email: yup
@@ -23,7 +24,7 @@ const schema = yup.object().shape({
 });
 
 const Login = () => {
-  const history = useHistory();
+  const [openModal,setOpenModal] = useState(false);
   const [error,setError] = useState(false);
   const { register, handleSubmit, errors,reset } = useForm({
       shouldFocusError: Field.Text,
@@ -31,21 +32,9 @@ const Login = () => {
     });
 
 
- const onSubmit = (values) => {
-   api.post('/auth',values)
-   .then(resp => {
-     if(!localStorage.getItem('token')){
-      localStorage.setItem('token','Bearer '+resp.data.token)
-     }
-      history.push('/')
-    })
-   .catch(err =>{
-     setError(err.response.data.error)
-     reset()
-    });
-
+ const onSubmit = async (values) => {
+     AuthServices.SignIn(values,setOpenModal,setError,reset)
  }
-
 
   return (
     <FormContainer>
@@ -75,6 +64,7 @@ const Login = () => {
         </Redirect>
         <Button.BtnBig name="Login" />
       </Form>
+      <Modal open={openModal}/>
     </FormContainer>
   );
 };

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
+import AuthContext from '../../context/auth';
 
 import { BiUserCircle } from 'react-icons/bi';
 import { MdFavorite } from 'react-icons/md';
@@ -13,15 +14,27 @@ import {
   Hamburger,
   OpenMenu,
 } from './styles';
+import { useEffect } from 'react';
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const { signed, user } = useContext(AuthContext);
+  const [userLogged,setUserLogged] = useState(null);
+
+  useEffect(()=>{
+      if(!!user && signed){
+        setUserLogged(<NavLinks to="/">{user.name}</NavLinks>)
+      }else{
+       setUserLogged(<NavLinks to="/login"><BiUserCircle size={42} style={{ marginRight: 15 }}/></NavLinks>)
+     }
+},[signed,user])
+
+
 
   return (
     <Container>
       <NavContainer>
         <NavTitle>PetRescue</NavTitle>
-
         <FlexNav>
           <NavLinks to="/dogs">Find a dog</NavLinks>
           <NavLinks to="/how-to-adopt">Requirement</NavLinks>
@@ -31,12 +44,7 @@ function Navbar() {
           <NavLinks to="/favorites" style={{ paddingRight: '10px' }}>
             <MdFavorite size={42} />
           </NavLinks>
-          <NavLinks
-            to="/register"
-            style={{ borderLeft: '1px solid blue', paddingLeft: '10px' }}
-          >
-            <BiUserCircle size={42} />
-          </NavLinks>
+        {userLogged}
         </FlexNav>
       </NavContainer>
       <Hamburger open={open} onClick={() => setOpen(!open)}>
@@ -61,10 +69,7 @@ function Navbar() {
           <MdFavorite size={54} style={{ paddingRight: 15 }} />
           Favorite
         </NavLinks>
-        <NavLinks to="/register">
-          <BiUserCircle size={42} style={{ marginRight: 15 }} />
-          User
-        </NavLinks>
+        {userLogged}
       </OpenMenu>
     </Container>
   );

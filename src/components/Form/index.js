@@ -8,6 +8,7 @@ export const Form = styled.form`
   @media (max-width: 768px) {
     width: 100%;
     min-height: 120px;
+    align-items:center;
   }
 `;
 

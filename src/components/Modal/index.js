@@ -1,15 +1,13 @@
 import React from 'react';
-import { Paragraphy, Title,Redirect } from '../../Typography';
-
+import { BsCheckCircle } from 'react-icons/bs'
 import { Container,ModalContainer } from './styles';
 
-const Modal = () =>  {
+const Modal = ({open}) =>  {
   return (
-    <Container>
+    <Container open={open}>
       <ModalContainer>
-        <Title>Confirmado</Title>
-        <Paragraphy>Parabéns, você realizou o cadastro!</Paragraphy>
-        <Redirect to="/login">Ir para login</Redirect>
+      <BsCheckCircle size={70} color="green"/>
+      <a href="/">Ir</a>
       </ModalContainer>
     </Container>
   );
