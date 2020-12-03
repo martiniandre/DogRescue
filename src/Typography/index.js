@@ -23,6 +23,7 @@ export const Paragraphy = styled.p`
   letter-spacing: 0.5px;
   line-height: 10px;
   color: var(--secondary);
+  opacity:0.8;
   margin-bottom: 10px;
 `;
 
